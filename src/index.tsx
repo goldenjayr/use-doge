@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Delete me
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>;
-};
-
 interface Props {
   type: string
   symbol: string
