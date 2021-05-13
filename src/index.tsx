@@ -5,18 +5,23 @@ export const Thing = () => {
   return <div>the snozzberries taste like snozzberries</div>;
 };
 
-type UseDoge = (symbol: string) => any
+interface Props {
+  type: string
+  symbol: string
+}
 
-const useDoge:UseDoge  = (symbol) => {
+type UseDoge = (props: Props) => any
+
+const useDoge:UseDoge  = ({ type, symbol }) => {
   const [doge, setDoge] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   useEffect(() => {
     async function request() {
       try {
-        const res = await fetch(`https://api.lunarcrush.com/v2?data=market-pairs&key=n12y5u73u1fzi58wnp1p0r&symbol=${symbol}`)
+        const res = await fetch(`https://api.lunarcrush.com/v2?data=${type}&key=n12y5u73u1fzi58wnp1p0r&symbol=${symbol}`)
         const result = await res.json()
-        setDoge(result)
+        setDoge(result.data[0])
         setLoading(false)
       } catch(err) {
         setError(err)
