@@ -14,7 +14,7 @@ const useDoge:UseDoge  = (symbol) => {
   useEffect(() => {
     async function request() {
       try {
-        const res = await fetch(`https://api.lunarcrush.com/v2?data=assets&key=ua0wdtzfq68y8xvtd5tivr&symbol=${symbol}`)
+        const res = await fetch(`https://api.lunarcrush.com/v2?data=market-pairs&key=n12y5u73u1fzi58wnp1p0r&symbol=${symbol}`)
         const result = await res.json()
         setDoge(result)
         setLoading(false)
