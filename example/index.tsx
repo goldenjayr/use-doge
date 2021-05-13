@@ -1,12 +1,13 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import useDoge from '../src'
 
 const App = () => {
+  const [doge] = useDoge('DOGE')
+  console.log("🚀 ~ file: index.tsx ~ line 8 ~ App ~ doge", doge)
   return (
     <div>
-      <Thing />
+      HelloDoge
     </div>
   );
 };
