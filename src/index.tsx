@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props {
   type: string
   symbol: string
 }
 
-type UseDoge = (props: Props) => any
+type UseDoge = (props: Props) => [any, boolean, any]
 
 const useDoge:UseDoge  = ({ type, symbol }) => {
   const [doge, setDoge] = useState(null)
